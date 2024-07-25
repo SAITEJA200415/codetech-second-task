@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <stdlib.h>
+// Structure to hold weather data
+typedef struct {
+    float temperature;
+    float humidity;
+    float windSpeed;
+} WeatherData;
+
+// Function to get weather data from user
+WeatherData getWeatherData() {
+    WeatherData data;
+    printf("Enter temperature (Celsius): ");
+    scanf("%f", &data.temperature);
+    printf("Enter humidity (%): ");
+    scanf("%f", &data.humidity);
+    printf("Enter wind speed (km/h): ");
+    scanf("%f", &data.windSpeed);
+    return data;
+}
+
+// Function to display weather data
+void displayWeatherData(WeatherData data) {
+    printf("Temperature: %.2f Celsius\n", data.temperature);
+    printf("Humidity: %.2f %%\n", data.humidity);
+    printf("Wind Speed: %.2f km/h\n", data.windSpeed);
+}
+
+int main() {
+    WeatherData data;
+    char choice;
+
+    while (1) {
+        printf("Weather Monitoring Station\n");
+        printf("1. Record Weather Data\n");
+        printf("2. Display Weather Data\n");
+        printf("3. Exit\n");
+        printf("Enter your choice: ");
+        scanf(" %c", &choice);
+
+        switch (choice) {
+            case '1':
+                data = getWeatherData();
+                break;
+            case '2':
+                displayWeatherData(data);
+                break;
+            case '3':
+                printf("Exiting...\n");
+                return 0;
+            default:
+                printf("Invalid choice. Please try again.\n");
+        }
+    }
+
+    return 0;
+}
+https://github.com/SAITEJA200415/CODETECH-TASK-2
